@@ -1,0 +1,50 @@
+<div class="container custom-container-2">
+  <!-- <div class="no-data text-center" *ngIf="atleti.lenght == 0">
+    <p>Non ci sono Atleti nella lista</p>
+    <button class="btn btn-outline-primary" routerLink="/AtletaInserisci">Aggiungi Atleta</button>
+  </div> -->
+  <br>
+  <div *ngIf="listaGara">
+    <h3 style="margin-left: 70px">Lista Gare</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered" style="width: 100%">
+        <thead>
+          <tr>
+            <th scope="col" style="width: 30%"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Data</th>
+            <th scope="col">Sport</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let gara of listaGara">
+            <td>
+              <a class="btn btn-xs btn-danger" style="color: white; margin-right: 10px" title="Elinima" (click)="eliminaGara(gara.Id)" >
+                <i class="fa fa-trash fa-xs"></i>
+              </a>
+              <a class="btn btn-xs btn-success" style="color: white; margin-right: 10px" title="Dettaglio"
+                routerLink="/GaraEdit/{{ gara.Id }}" routerLinkActive="active">
+                <i class="fa fa-edit fa-xs"></i>
+              </a>
+              <a class="btn btn-xs btn-info" style="color: white; margin-right: 10px" title="Partecipanti"
+                routerLink="/Posizioni/{{ gara.Id }}" routerLinkActive="active">
+                <i class="fa fa-users fa-xs"></i>
+              </a>
+              <a class="btn btn-xs btn-primary" style="color: white;" title="Classifica" routerLink="/Classifica/{{ gara.Id }}" routerLinkActive="active">
+                <i class="fa fa-list-ol fa-xs"></i>
+              </a>
+              
+            </td>
+            <td>{{ gara.Nome }}</td>
+            <td>{{ gara.Data | date: "dd/MM/yyyy" }}</td>
+            <td>{{ gara.Sport }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-success" routerLink="/GaraInserisci" routerLinkActive="active">
+        Aggiungi Nuova Gara
+      </button>
+    </div>
+  </div>
+</div>

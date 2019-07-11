@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Lista Partecipanti</h2>
+  <br>
+  <ul *ngFor="let partecipante of listaPartecipanti">
+    <li>Nome Gara: {{ partecipante.NomeGara }}</li>
+    <li>IdAtleta: {{ partecipante.IdAtleta }}</li>
+    <li>Posizione Atleta: {{ partecipante.PosizioneAtleta }}</li>
+  </ul>
+</div>

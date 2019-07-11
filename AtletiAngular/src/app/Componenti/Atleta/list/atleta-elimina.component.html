@@ -1,0 +1,43 @@
+<div class="container custom-container-2" [formGroup]="atletaForm">
+  <div *ngIf="atleti">
+    <br>
+    <h3 style="margin-left: 10px">Lista Atleti</h3>
+
+    <div class="col-md-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome
+              <input type="text" [(ngModel)]="filtroCognome"  formControlName="filtroCognome" (ngModelChange)=input(filtroCognome)/>
+            </th>
+            <th scope="col">Peso</th>
+            <th scope="col">Data di nascita</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let atleta of atleti">
+            <td>
+              <a class="btn btn-xs btn-danger" style="color: white; margin-right: 10px;" title="Elinima"
+                (click)="eliminaAtleta(atleta.Id)">
+                <i class="fa fa-trash fa-xs"></i>
+              </a>
+              <a class="btn btn-xs btn-success" style="color: white;" title="Dettaglio"
+                routerLink="/AtletaEdit/{{ atleta.Id }}" routerLinkActive="active">
+                <i class="fa fa-edit fa-xs"></i>
+              </a>
+            </td>
+            <td>{{ atleta.Nome }}</td>
+            <td>{{ atleta.Cognome }}</td>
+            <td>{{ atleta.Peso }} Kg</td>
+            <td>{{ atleta.Data | date: "dd/MM/yyyy" }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-success" routerLink="/AtletaInserisci" routerLinkActive="active">
+        Aggiungi Nuovo Atleta
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<form [formGroup]="garaForm" (ngSubmit)='ModificaGara(garaForm.value)'>
+  <div class="container custom-container" *ngIf="garaForm">
+    <div class="col-md-12">
+      <br>
+      <h3 >Modifica Gara</h3>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="gara.Nome" class="form-control" formControlName="Nome"/>
+      </div>
+      <div *ngIf="garaForm.controls['Nome'].invalid && (garaForm.controls['Nome'].dirty || garaForm.controls['Nome'].touched)" class="alert alert-danger">
+        <div *ngIf="garaForm.controls['Nome'].errors.required">
+          Nome è richiesto
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="date" [(ngModel)]="Gara.Data" class="form-control"  formControlName="Data"/>
+      </div>
+      <div *ngIf="garaForm.controls['Data'].invalid && (garaForm.controls['Data'].dirty || garaForm.controls['Data'].touched)" class="alert alert-danger">
+        <div *ngIf="garaForm.controls['Data'].errors.required">
+          Data è richiesta
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="gara.Sport" class="form-control" formControlName="Sport"/>
+      </div>
+      <div *ngIf="garaForm.controls['Sport'].invalid && (garaForm.controls['Sport'].dirty || garaForm.controls['Sport'].touched)" class="alert alert-danger">
+        <div *ngIf="garaForm.controls['Sport'].errors.required">
+          Sport è richiesto
+        </div>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-success" routerLink="/GaraLista" routerLinkActive="active" > Indietro</button>
+        <button class="btn btn-success" type="submit" [disabled]="garaForm.invalid" value="send" style="margin-left: 935px">
+          Salva
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

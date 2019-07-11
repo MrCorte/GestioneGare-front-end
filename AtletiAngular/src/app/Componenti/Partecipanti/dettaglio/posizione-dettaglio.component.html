@@ -1,0 +1,42 @@
+<div class="container">
+  <br>
+  <h2>Lista Partecipanti: {{ gara.Nome }}</h2>
+  <br> 
+  <div class="Box1">
+      <table class="table table-bordered" style="width: 100%">
+          <thead>
+            <tr>
+              <th style="width: 20%;"></th>
+              <th scope="col">Nome</th>
+              <th scope="col">Cognome</th>
+              <th scope="col">Peso</th>
+              <th scope="col">Data di nascita</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let partecipanteV of partecipantiV">
+              <td>
+                  <!-- <button type="button" routerLink="/PartecipantiClassifica/{{ gara.Id }}/{{partecipanteV.IdAtleta}}" routerLinkActive="active" class="btn btn-primary">Modifica</button> -->
+                  <a class="btn btn-xs btn-danger" style="color: white; margin-right: 10px;" title="Elinima"
+                (click)="eliminaAtleta(partecipanteV)">
+                <i class="fa fa-trash fa-xs"></i>
+              </a>
+              <a class="btn btn-xs btn-success" style="color: white;" title="Modifica"
+              routerLink="/PartecipantiClassifica/{{ gara.Id }}/{{partecipanteV.IdAtleta}}" routerLinkActive="active">
+                <i class="fa fa-edit fa-xs"></i>
+              </a>
+              </td>
+              <td>{{ partecipanteV.NomeAtleta }}</td>
+              <td>{{ partecipanteV.CognomeAtleta }}</td>
+              <td>{{ partecipanteV.Peso }} Kg</td>
+              <td>{{ partecipanteV.Data | date: "dd/MM/yyyy" }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+  <button class="btn btn-success" routerLink="/GaraLista" routerLinkActive="active" style="margin-left: 1px;"> Indietro</button>
+
+  <button class="btn btn-success" routerLink="AggiungiPartecipante/{{gara.Id}}" routerLinkActive="active" style="margin-left: 847px">Iscrivi un nuovo atleta</button>
+</div>
+</div>
+

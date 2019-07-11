@@ -1,0 +1,28 @@
+<form [formGroup]="partecipantiForm" (ngSubmit)="addPartecipante(partecipantiForm.value)">
+  <div class="box3" *ngIf="listaAtleti">
+    <h2>Atleti:</h2>
+    <div class="form-group">
+      <select class="form-control" id="atleta.id" required formControlName="IdAtleta">
+        <option [ngValue]="undefined" disabled  selected> Selezionare un Atleta </option>
+        <option *ngFor="let atleta of listaAtleti" [ngValue]="atleta.id">{{ atleta.Cognome }}
+        </option>
+      </select>
+    </div>
+  <div class="box3" *ngIf="listaGare">
+    <h2>Gare:</h2>
+    <div class="form-group">
+      <select class="form-control" id="gara.id" required formControlName="IdGara">
+        <option [ngValue]="undefined" disabled  selected> Selezionare una Gara </option>
+        <option *ngFor="let gara of listaGare" [ngValue]="gara.id">{{
+          gara.Nome
+        }}</option>
+      </select>
+    </div>
+  </div>
+  <div class="invio">
+    <button class="btn btn-success btn-lg btn-block" type="submit" value="send">
+      Iscrivi Atleta
+    </button>
+  </div>
+</form>
+ 

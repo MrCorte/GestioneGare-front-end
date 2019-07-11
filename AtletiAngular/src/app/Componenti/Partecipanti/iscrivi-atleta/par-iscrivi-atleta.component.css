@@ -1,0 +1,19 @@
+
+.box3{
+    display: inline-table;
+    margin-left: 130px;
+    margin-top: 10px;
+}
+.invio{
+    width: 563px;
+    margin-left: 170px;
+}
+h2{
+    margin-left: 45px;
+}
+.form-group{
+    margin-left: 40px;
+}
+li{
+    list-style-type: none;
+  }

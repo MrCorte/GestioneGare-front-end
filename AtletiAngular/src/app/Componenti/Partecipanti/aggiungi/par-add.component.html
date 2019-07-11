@@ -1,0 +1,22 @@
+<form [formGroup]="partecipanteForm" (ngSubmit)="addPartecipante(partecipanteForm.value)">
+  <div class="box3" *ngIf="gara">
+      <h2>Nome della Gara: {{gara.Nome}}</h2>
+    </div>
+    <div class="box3" *ngIf="atleti">
+      <h4>Scegliere un Atleta da Iscrivere:</h4>
+      <div class="form-group">
+        <select class="form-control" id="atleta.id" required formControlName="IdAtleta" style="width: 380px;">
+          <option [ngValue]="undefined" disabled  selected> Selezionare un Atleta </option>
+          <option *ngFor="let atleta of atleti" [ngValue]="atleta.Id">{{ atleta.Cognome }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="invio">
+        <button class="btn btn-success" routerLink="/Posizioni/{{gara.Id}}" routerLinkActive="active" style="margin-left: 170px;"> Indietro</button>
+
+      <button class="btn btn-success" type="submit" value="send" style="margin-left: 180px">
+        Iscrivi Atleta
+      </button>
+    </div>
+    </form>

@@ -1,0 +1,20 @@
+<div class="container">
+  <br>
+    <h2>Dettaglio Gara </h2>
+    <br>
+      <div class="box1">
+        <li>Nome Gara:  {{ gara.Nome }}</li>
+        <br>
+        <li>Data:  {{ gara.Data | date: 'dd/MM/yyyy' }}</li>
+        <br>
+        <li>Sport Gara: {{ gara.Sport }}</li>
+        <br>
+      </div>
+      <br>
+      <div class="box">
+        <button type="button" routerLink="/GaraLista" routerLinkActive="active" class="btn btn-success">indietro</button>
+        
+        <button type="button" routerLink="/GaraEdit/{{ gara.Id }}" routerLinkActive="active" class="btn btn-success" style="margin-left: 300px">Modifica</button>
+        
+      </div>
+  </div>

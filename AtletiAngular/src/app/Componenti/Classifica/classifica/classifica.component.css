@@ -1,0 +1,11 @@
+.container{
+    margin-left: 200px;
+}
+
+  li{
+    list-style-type: none;
+  }
+
+  .box{
+    display: inline-block;
+  }

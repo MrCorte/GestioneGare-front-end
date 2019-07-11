@@ -1,0 +1,22 @@
+<div class="container">
+  <br>
+  <h2>Dettaglio Partecipante: {{ atleta.Nome }} {{ atleta.Cognome }}</h2>
+  <h3>Iscritto alla Gara: {{ gara.Nome }}</h3>
+  <br>
+  <div class="box">
+    <ul>
+      <li>Nome Atleta: {{ atleta.Nome }}</li>
+      <li>Cognome Atleta: {{ atleta.Cognome }}</li>
+      <li>Data di nascita: {{ atleta.Data | date: 'dd/MM/yyyy' }}</li>
+      <li>Peso Atleta: {{ atleta.Peso }}</li>
+      <form [formGroup]="posizioneForm" (ngSubmit)="updatePosizione(posizioneForm.value)">
+       <div class="form-group">
+          <input type="number" style="width: 250px" [(ngModel)]="partecipante.PosizioneAtleta" class="form-control" placeholder="Posizione" formControlName="Posizione"/>
+        </div>
+       <br>
+      <button class="btn btn-success" routerLink="/Classifica/{{gara.Id}}" routerLinkActive="active" > Indietro</button>
+      <button type="button" class="btn btn-success" type="submit" value="send" style="margin-left: 310px"> Aggiorna</button>
+    </form>
+    </ul>
+  </div>
+</div>

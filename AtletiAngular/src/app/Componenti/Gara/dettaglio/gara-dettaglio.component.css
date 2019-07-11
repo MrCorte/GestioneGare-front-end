@@ -1,0 +1,20 @@
+div{
+    margin-left: 100px;
+}
+h2{
+  margin-left: 100px;
+}
+li{
+    list-style-type: none;
+  }
+.box{
+  display: inline-block;
+}
+.box1 {
+  width: 470px;
+  padding: 10px;
+  border: 5px solid #5ec467;
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: lightgrey;
+}

@@ -1,0 +1,33 @@
+<div class="container">
+  <br>
+  <h2>Classifica Gara: {{ gara.Nome }}</h2>
+  <br>
+    <div class="box" >
+        <table class="table table-bordered" style="width: 100%">
+            <thead>
+              <tr>
+                <th style="width: 10%;"></th>
+                <th scope="col">Posizione</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cognome</th>
+                <th scope="col">Peso</th>
+                <th scope="col">Data di nascita</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let partecipanteV of partecipantiV">
+                <td>
+                    <button type="button" routerLink="/Posizioni/{{partecipanteV.IdGara}}/{{partecipanteV.IdAtleta}}" routerLinkActive="active" class="btn btn-primary">Aggiorna</button>
+                </td>
+                <td>{{ partecipanteV.PosizioneAtleta}}</td>
+                <td>{{ partecipanteV.NomeAtleta }}</td>
+                <td>{{ partecipanteV.CognomeAtleta }}</td>
+                <td>{{ partecipanteV.Peso }} Kg</td>
+                <td>{{ partecipanteV.Data | date: "dd/MM/yyyy" }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    <br>
+    <button type="button" routerLink="/GaraLista" routerLinkActive="active" class="btn btn-success">indietro</button>
+  </div>

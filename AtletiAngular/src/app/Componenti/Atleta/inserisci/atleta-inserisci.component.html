@@ -1,0 +1,46 @@
+<form [formGroup]="atletaForm" (ngSubmit)='AggiungiAtleta(atletaForm.value)'>
+  <div class="container custom-container">
+    <div class="col-md-12">
+      <br>
+      <h3>Crea un nuovo Atleta</h3>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="Atleta.Nome" class="form-control" placeholder="Nome" formControlName="Nome" />
+      </div>
+      <div *ngIf="atletaForm.controls['Nome'].invalid && (atletaForm.controls['Nome'].dirty || atletaForm.controls['Nome'].touched)" class="alert alert-danger">
+      <div *ngIf="atletaForm.controls['Nome'].errors.required">
+        Nome è richiesto
+      </div>
+    </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="Atleta.Cognome" class="form-control" placeholder="Cognome" formControlName="Cognome"/>
+      </div>
+      <div *ngIf="atletaForm.controls['Cognome'].invalid && (atletaForm.controls['Cognome'].dirty || atletaForm.controls['Cognome'].touched)" class="alert alert-danger">
+        <div *ngIf="atletaForm.controls['Cognome'].errors.required">
+          Cognome è richiesto
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="number" [(ngModel)]="Atleta.Peso" class="form-control" placeholder="Peso" formControlName="Peso"/>
+      </div>
+      <div *ngIf="atletaForm.controls['Peso'].invalid && (atletaForm.controls['Peso'].dirty || atletaForm.controls['Peso'].touched)" class="alert alert-danger">
+        <div *ngIf="atletaForm.controls['Peso'].errors.required">
+          Peso è richiesto
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="date" [(ngModel)]="Atleta.Data" class="form-control" placeholder="Data" formControlName="Data"/>
+      </div>
+      <div *ngIf="atletaForm.controls['Data'].invalid && (atletaForm.controls['Data'].dirty || atletaForm.controls['Data'].touched)" class="alert alert-danger">
+        <div *ngIf="atletaForm.controls['Data'].errors.required">
+          Data è richiesta
+        </div>
+      </div>
+      <div class="form-group">
+          <button class="btn btn-success" routerLink='/AtletaLista' routerLinkActive="active" value="send">Indietro</button>
+        <button class="btn btn-success" type="submit" [disabled]="atletaForm.invalid" value="send" style="margin-left: 840px">
+          Crea Atleta
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
